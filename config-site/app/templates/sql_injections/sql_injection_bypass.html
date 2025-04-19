@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Bypass</h2>
+
+<p>Статус уязвимости: {{ vuln_mode }}</p>
+<p>Статус веб-приложения: {{ status }}</p>
+
+{% if status == "running" %}
+
+<p><a href="{{ lab_link }}">Хакни меня!</a></p>
+
+<form action="/lab/sql_injection/stop" method="POST" style="display: inline">
+    <button type="submit">🛑 Остановить работу</button>
+</form>
+
+<form action="/lab/sql_injection/toggle_vuln"
+      method="POST"
+      style="display: inline">
+    <button type="submit">⚙️ Вкл/Выкл уязвимость</button>
+</form>
+
+{% else %}
+<form action="/lab/sql_injection/start" method="POST" style="display: inline">
+    <button type="submit">🚀 Запустить сайт</button>
+</form>
+{% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>SQL Injection Lab</title>
+    </head>
+    {{ mode }}
+    <body>
+        <h2>Вход в систему</h2>
+        <form method="POST">
+            <label>Логин:</label><br />
+            <input type="text" name="username" /><br />
+            <label>Пароль:</label><br />
+            <input type="text" name="password" /><br /><br />
+            <button type="submit">Войти</button>
+        </form>
+
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+    </body>
+</html>
